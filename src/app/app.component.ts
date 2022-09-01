@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from './core/services/auth.service';
+import { Auth } from './models/auth';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'APIREST-PEREZ';
+sesion$!: Observable<Auth>;
+
+constructor(
+  private authService: AuthService
+){}
+
+ngOnInit(){
+  this.sesion$ = this.authService.getSesion();
+}
+
+endSesion(){
+  this.authService.endSesion()
+}
 }
