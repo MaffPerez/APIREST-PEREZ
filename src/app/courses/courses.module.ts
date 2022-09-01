@@ -3,33 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
-import { CoursesFormComponent } from './components/courses-form/courses-form.component';
 import { MoreInfoFormComponent } from './components/more-info-form/more-info-form.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
+import { MaterialModule } from '../shared/material.module';
+import { CourseEditComponent } from './components/course-edit/course-edit.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     CoursesListComponent,
-    CoursesFormComponent,
-    MoreInfoFormComponent
+    MoreInfoFormComponent,
+    CourseEditComponent
   ],
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    MatTableModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatIconModule,
+    MaterialModule,
+    SharedModule
   ]
 })
 export class CoursesModule { }

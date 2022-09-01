@@ -15,3 +15,11 @@ export interface Alumnos {
     status: string;
     email: string;
 }
+
+export interface Course {
+    name: string;
+    dateStart: Date;
+    dateEnd: Date;
+    teacher:string;
+    id: string;
+}

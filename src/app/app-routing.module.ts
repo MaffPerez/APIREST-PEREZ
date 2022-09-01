@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./courses/courses.module').then((m) => m.CoursesModule),
     canActivate: [AuthGuard]
   },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' }
+  { path: '', redirectTo: 'courses/lista', pathMatch: 'full' }
 ];
 
 @NgModule({
