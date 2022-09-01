@@ -12,7 +12,7 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup = new FormGroup({
-    user: new FormControl('abner', [Validators.required]),
+    user: new FormControl('mafer', [Validators.required]),
     password: new FormControl('1234', [Validators.required])
   });
 
@@ -25,14 +25,14 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log(this.formulario)
-    const user: User = {
-      user: this.formulario.value.user,
-      password: this.formulario.value.password
+    if(this.formulario.valid){
+      const user: User = {
+        user: this.formulario.value.user,
+        password: this.formulario.value.password
+      }
+      this.authService.startSesion(user);
+      this.router.navigate(['inicio'])
     }
-    this.authService.startSesion(user);
-    this.router.navigate(['inicio'])
-    console.log(user)
   }
 
 }
