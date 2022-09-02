@@ -12,8 +12,8 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup = new FormGroup({
-    user: new FormControl('Johanna99', [Validators.required]),
-    password: new FormControl('CLy2q8Jh5l5CXMQ', [Validators.required]),
+    user: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
     admin: new FormControl(true)
   });
 
