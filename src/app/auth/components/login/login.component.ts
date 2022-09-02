@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         id: '1',
       }
       this.authService.startSesion(user);
-      this.router.navigate(['courses/lista'])
+      this.router.navigate(['inicio'])
     
   }
 

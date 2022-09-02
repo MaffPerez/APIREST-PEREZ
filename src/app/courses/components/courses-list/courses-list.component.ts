@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
-import { Course, Courses } from 'src/app/models/courses';
+import { Course } from 'src/app/models/courses';
 import { CourseService } from 'src/app/core/services/course.service';
 import { CourseEditComponent } from '../course-edit/course-edit.component';
 
@@ -40,7 +40,7 @@ export class CoursesListComponent implements OnInit {
 
   editCourse(course: Course){
     const dialogRef = this.dialog.open(CourseEditComponent, {
-      width: '700px',
+      width: '300px',
       data: course
     })
     dialogRef.afterClosed().subscribe((res) => {
