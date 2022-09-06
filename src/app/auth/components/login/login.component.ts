@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    if(this.formulario){
       const user: User = {
         user: this.formulario.value.user,
         password: this.formulario.value.password,
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
       }
       this.authService.startSesion(user);
       this.router.navigate(['inicio'])
+    }
+
     
   }
 

@@ -16,6 +16,6 @@ export class NavBarComponent implements OnInit {
   }
 
   endSesion(){
-    this.authService.endSesion()
+    this.authService.endSesion();
   }
 }
