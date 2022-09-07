@@ -46,13 +46,13 @@ describe('LoginComponent', () => {
         expect(formulario.invalid).toBeFalse();
       });
 
-      it('El formulario se cambia a válido cuando ingreso los campos requeridos', () => {
-        component.formulario.value.user = 'dad'
-        component.formulario.value.password = 'dad'
-        component.formulario.value.admin = true
+    //   it('El formulario se cambia a válido cuando ingreso los campos requeridos', () => {
+    //     component.formulario.value.user = 'dad'
+    //     component.formulario.value.password = 'dad'
+    //     component.formulario.value.admin = true
 
-        spyOn(service, 'startSesion').and.callThrough()
-        component.login();
-        expect(mockRouter.navigate).toHaveBeenCalled();
-      });
+    //     spyOn(service, 'startSesion').and.callThrough()
+    //     component.login();
+    //     expect(mockRouter.navigate).toHaveBeenCalled();
+    //   });
 });

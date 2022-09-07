@@ -35,4 +35,5 @@ export class CourseService {
   deleteCourse(id: string) {
     return this.http.delete<Course>(`${this.api}/courses/${id}`)
   }
+
 }

@@ -4,6 +4,7 @@ import { MatTable } from '@angular/material/table';
 import { Course } from 'src/app/models/courses';
 import { CourseService } from 'src/app/core/services/course.service';
 import { CourseEditComponent } from '../course-edit/course-edit.component';
+import { MoreInfoFormComponent } from '../more-info-form/more-info-form.component';
 
 @Component({
   selector: 'app-courses-list',
@@ -51,4 +52,16 @@ export class CoursesListComponent implements OnInit {
     })
   }
 
+  moreInfo(course: Course){
+    const dialogRef = this.dialog.open(MoreInfoFormComponent, {
+      width: '550px',
+      data: course
+    })
+    dialogRef.afterClosed().subscribe((res) => {
+      if(res){
+        // alert(`${course.id} - ${course.name} fue editado satisfactoriamente`);
+        this.ngOnInit();
+      }
+    })
+  }
 }

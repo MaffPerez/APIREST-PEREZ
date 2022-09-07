@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { CourseService } from 'src/app/core/services/course.service';
 import { StudentsService } from 'src/app/core/services/students.service';
 import { Students } from 'src/app/models/students';
 import { StudentEditComponent } from '../student-edit/student-edit.component';
@@ -17,7 +18,8 @@ export class StudentsListComponent implements OnInit {
   
   constructor(
     public dialog: MatDialog,
-    private studentService: StudentsService
+    private studentService: StudentsService,
+    private courseService: CourseService
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +47,18 @@ export class StudentsListComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       if(res){
         alert(`${student.id} - ${student.firstName} ${student.lastName}fue editado satisfactoriamente`);
+        this.ngOnInit();
+      }
+    })
+  }
+
+  moreInfoStudents(student: Students){
+    const dialogRef = this.dialog.open(StudentEditComponent, {
+      width: '300px',
+      data: student
+    })
+    dialogRef.afterClosed().subscribe((res) => {
+      if(res){
         this.ngOnInit();
       }
     })
