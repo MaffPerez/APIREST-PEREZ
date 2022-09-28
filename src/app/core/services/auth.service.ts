@@ -21,6 +21,7 @@ export class AuthService {
       auth: false
     };
     this.sesionSubject = new BehaviorSubject(auth);
+    console.log(auth)
   }
 
   getSesion() {
@@ -42,7 +43,9 @@ export class AuthService {
             user: user.user,
             password: user.password,
             id: user.id,
-            admin: user.admin
+            admin: user.admin,
+            nationality: user.nationality,
+            email: user.email
           }
         };
         this.sesionSubject.next(sesion);
@@ -51,6 +54,7 @@ export class AuthService {
         alert('Usuario no encontrado')
       }
     })
+
   }
 
   endSesion() {
