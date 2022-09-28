@@ -3,4 +3,6 @@ export interface User {
     user: string;
     password: string;
     admin: boolean;
+    nationality: string;
+    email: string;
 }

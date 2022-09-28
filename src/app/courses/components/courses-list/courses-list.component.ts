@@ -5,6 +5,7 @@ import { Course } from 'src/app/models/courses';
 import { CourseService } from 'src/app/core/services/course.service';
 import { CourseEditComponent } from '../course-edit/course-edit.component';
 import { MoreInfoFormComponent } from '../more-info-form/more-info-form.component';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-courses-list',
@@ -16,14 +17,22 @@ export class CoursesListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'category', 'profesor', 'action'];
   courses: Course[]=[]
   @ViewChild(MatTable) tabla!: MatTable<any>;
-
+  isAdmin = false;
+  userObject!: any
+  
   constructor(
     public dialog: MatDialog,
-    private courseService: CourseService
+    private courseService: CourseService,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
     this.getInfoCourses();
+    this.authService.getSesion().subscribe( sesion => {
+      if(sesion.auth){
+        this.userObject = sesion;
+        this.isAdmin = this.userObject.user.admin
+    }})
   }
 
   getInfoCourses() {

@@ -14,4 +14,16 @@
         </mat-icon>
         Inscripciones 
     </a>
+    <ng-container *ngIf="isAdmin">
+        <a routerLink="/usuarios" class="nav-link d-flex align-items-center" aria-current="page">
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="list_alt">
+            </mat-icon>
+            Usuarios 
+        </a>
+    </ng-container>
+    <a (click)="endSesion()" class="nav-link d-flex align-items-center" aria-current="page">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="logout">
+        </mat-icon>
+        LogOut 
+    </a>
 </nav>

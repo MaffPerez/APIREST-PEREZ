@@ -12,8 +12,8 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
 
   formulario: FormGroup = new FormGroup({
-    user: new FormControl('Johanna99', [Validators.required]),
-    password: new FormControl('CLy2q8Jh5l5CXMQ', [Validators.required]),
+    user: new FormControl('Gabe.Carroll20', [Validators.required]),
+    password: new FormControl('mZuUmQvcCGtK38O', [Validators.required]),
     admin: new FormControl(true)
   });
 
@@ -32,10 +32,13 @@ export class LoginComponent implements OnInit {
         password: this.formulario.value.password,
         admin: this.formulario.value.admin,
         id: '1',
+        nationality: this.formulario.value.nationality,
+        email: this.formulario.value.email
       }
       this.authService.startSesion(user);
       this.router.navigate(['inicio'])
     }
+    
   }
 
 }

@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  userObject!: any
   constructor(
     private authService: AuthService,
     private router: Router
@@ -18,6 +18,9 @@ export class HomeComponent implements OnInit {
     this.authService.getSesion().subscribe( sesion => {
       if(!sesion.auth){
         this.router.navigate(['auth/login'])
+      } else {
+        this.userObject = sesion;
+        sessionStorage.setItem('Nombre', this.userObject.user.user)
       }
     })
   }
